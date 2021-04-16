@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset=UTF-8>
+	<title>Dominó</title>
+	<link rel="stylesheet" href="main.css" type="text/css">
+	<script src="game/main.js"></script>
+	<script src="game/interface.js"></script>
+</head>
+
+<body>
+	<h1 id="title">Dominó</h1>
+	<h2 id="message">Pode começar</h2>
+	
+	<div class="autentication">
+		<p id="loginSentence">Por favor faz o login</p>
+		<input type="text" id="inputUsername" placeholder="Nome de utilizador" maxlength="10" required autofocus>
+		<br id="loginFormat1">
+		<input type="password" id="inputPassword" placeholder="Password" required>
+		<p id="errorLogin"></p>
+		<button id="loginButton" onclick="saveUser();">Login</button>
+	</div>
+	
+	<div class="information">
+		<div id="logout" onclick="doLogout();changeToAutentication();">Logout</div>
+		<hr>
+		<div id="newGame" onclick="quit();clearGameBoard();displayConfiguration();">Novo jogo</div>
+		<hr>
+		<div id="instructions" onclick="clearGameBoard();displayInstruction();">Instruções</div>
+		<hr>
+		<div id="scoreBoard">
+			<table id="scoreTable">
+			  <tr><th>Jogador</th><th>Vitórias</th></tr>
+			  <tr><td id="scoreTableUser1">Utilizador1</td><td id="scoreTableUserPoints1">0</td></tr>
+			  <tr><td id="scoreTableUser2">Utilizador2</td><td id="scoreTableUserPoints2">0</td></tr>
+			  <tr><td id="scoreTableUser3">Utilizador3</td><td id="scoreTableUserPoints3">0</td></tr>
+			  <tr><td id="scoreTableUser4">Utilizador4</td><td id="scoreTableUserPoints4">0</td></tr>
+			  <tr><td id="scoreTableUser5">Utilizador5</td><td id="scoreTableUserPoints5">0</td></tr>
+			  <tr><td id="scoreTableUser6">Utilizador6</td><td id="scoreTableUserPoints6">0</td></tr>
+			  <tr><td id="scoreTableUser7">Utilizador7</td><td id="scoreTableUserPoints7">0</td></tr>
+			  <tr><td id="scoreTableUser8">Utilizador8</td><td id="scoreTableUserPoints8">0</td></tr>
+			  <tr><td id="scoreTableUser9">Utilizador9</td><td id="scoreTableUserPoints9">0</td></tr>
+			  <tr><td id="scoreTableUser10">Utilizador10</td><td id="scoreTableUserPoints10">0</td></tr>
+			</table>
+		</div>
+	</div>
+	
+	<div class="config">
+		<div id="configSentence">Configurações do jogo</div>
+		<div id="oponent">
+			Escolha o seu oponente: 
+			<select id="oponentSelect" onChange="chooseOponent();">
+			  <option value="0">Computador</option>
+			  <option value="1" selected>Jogador</option>
+			</select>
+		</div>
+		<hr>
+		<div id="difficulty">
+			Escolha a dificuldade:  
+			<select id="difficultySelect">
+			  <option value="0">Iniciante</option>
+			</select>
+		</div>
+		<hr>
+		<button id="startGame" onclick="clearConfiguration();endGame();startGame();">Começar jogo</button>
+	</div>
+	
+	<div class="gameZone">
+		<div id="stockPieces"></div>
+		<div id="oponentPieces"></div>
+		<div id="gameBoard"></div>
+	</div>
+	
+	<div class="gameControl">
+		<div id="controlSentence">Controlos do jogo</div>
+		<div id="pass" onclick="pass();">Passar a vez</div>
+		<hr>
+		<div id="quit" onclick="quit();">Desistir</div>
+	</div>
+	
+	<div class="gameZone">
+		<div id="playerPieces"></div>
+	</div>
+	
+	<div class="instruction">
+		<div id="instructionSentence">Regras do jogo</div>
+		<div id="rule1">Quem tem a peça de valor mais alto inicia o jogo.</div>
+		<hr>
+		<div id="rule2">Cada nova peça é colocada numa das extremidades da fila.</div>
+		<hr>
+		<div id="rule3">Se um jogador não tiver peça para jogar tem ir ao monte.</div>
+		<hr>
+		<div id="rule4">Vai retirando peças do monte até que o possa jogar.</div>
+		<hr>
+		<div id="rule5">Não havendo peças no monte o jogador pode passar a sua vez.</div>
+		<hr>
+		<div id="rule6">Só com o monte vazio é que se pode passar.</div>
+		<hr>
+		<div id="rule7">Jogo termina quando um jogador fica sem peças ou o jogo está fechado.</div>
+		<hr>
+		<div id="rule8">Ganha o jogador com menor número de pontos em mão.</div>
+		<hr>
+		<button id="closeInstruction" onclick="clearInstruction();">Fechar</button>
+	</div>
+	
+</body>
+</html>
