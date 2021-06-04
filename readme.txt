@@ -1,1 +1,1 @@
-Url that was used to host the game is no longer valid.
+Server that was used to host the game is not longer available.
